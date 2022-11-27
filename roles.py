@@ -42,10 +42,6 @@ async def index(user_id: int | None):
 @rolesAPI.middleware('http')
 async def verify_token(request: Request, call_next):
     token = request.cookies.get('int')
-    if not token:
-        raise HTTPException(401, 'Unathorized')
     print(request.cookies)
     response = await call_next(request)
     return response
-    
-    

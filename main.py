@@ -1,4 +1,7 @@
 from fastapi import FastAPI
+from dotenv import load_dotenv
+
+load_dotenv('.env')
 
 app = FastAPI()
 
@@ -11,3 +14,6 @@ from roles import rolesAPI
 
 app.mount('/roles', rolesAPI)
 
+from auth import authAPI
+
+app.mount('/auth', authAPI)
